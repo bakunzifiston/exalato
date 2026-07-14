@@ -1,0 +1,58 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+
+    /* 2ES Ltd */
+    --color-brand: #9C3620;
+    --color-brand-dark: #611215;
+    --color-brand-deeper: #62090F;
+    --color-brand-accent: #D37424;
+    --color-surface: #f4f6f8;
+}
+
+[x-cloak] {
+    display: none !important;
+}
+
+@layer components {
+    .admin-shell {
+        @apply min-h-screen bg-surface text-slate-800 antialiased dark:bg-slate-950 dark:text-slate-100;
+    }
+
+    .admin-input {
+        @apply w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm transition placeholder:text-slate-400 focus:border-brand/50 focus:outline-none focus:ring-2 focus:ring-brand/15 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100;
+    }
+
+    .admin-input-readonly {
+        @apply bg-slate-50 text-slate-500 dark:bg-slate-900/60 dark:text-slate-400;
+    }
+
+    .admin-card {
+        @apply rounded-xl border border-slate-200/80 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900;
+    }
+
+    .admin-table-head {
+        @apply bg-slate-50/80 text-left text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:bg-slate-900/60 dark:text-slate-400;
+    }
+
+    .admin-table-row {
+        @apply border-b border-slate-100 transition-colors hover:bg-slate-50/80 dark:border-slate-800 dark:hover:bg-slate-800/50;
+    }
+
+    .admin-nav-item {
+        @apply flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white;
+    }
+
+    .admin-nav-item-active {
+        @apply bg-brand/8 text-brand-dark dark:bg-brand/15 dark:text-brand-accent;
+    }
+}
